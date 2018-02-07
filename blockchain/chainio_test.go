@@ -11,9 +11,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/roasbeef/btcd/chaincfg/chainhash"
-	"github.com/roasbeef/btcd/database"
-	"github.com/roasbeef/btcd/wire"
+	"github.com/JinCoin/jind/chaincfg/chainhash"
+	"github.com/JinCoin/jind/database"
+	"github.com/JinCoin/jind/wire"
 )
 
 // TestErrNotInMainChain ensures the functions related to errNotInMainChain work

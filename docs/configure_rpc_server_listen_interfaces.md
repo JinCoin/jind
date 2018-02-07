@@ -1,4 +1,4 @@
-btcd allows you to bind the RPC server to specific interfaces which enables you
+jind allows you to bind the RPC server to specific interfaces which enables you
 to setup configurations with varying levels of complexity.  The `rpclisten`
 parameter can be specified on the command line as shown below with the -- prefix
 or in the configuration file without the -- prefix (as can all long command line
@@ -27,18 +27,18 @@ Command Line Examples:
 |--rpclisten=|all interfaces on default port which is changed by `--testnet`|
 |--rpclisten=0.0.0.0|all IPv4 interfaces on default port which is changed by `--testnet`|
 |--rpclisten=::|all IPv6 interfaces on default port which is changed by `--testnet`|
-|--rpclisten=:8334|all interfaces on port 8334|
-|--rpclisten=0.0.0.0:8334|all IPv4 interfaces on port 8334|
-|--rpclisten=[::]:8334|all IPv6 interfaces on port 8334|
-|--rpclisten=127.0.0.1:8334|only IPv4 localhost on port 8334|
-|--rpclisten=[::1]:8334|only IPv6 localhost on port 8334|
-|--rpclisten=:8336|all interfaces on non-standard port 8336|
-|--rpclisten=0.0.0.0:8336|all IPv4 interfaces on non-standard port 8336|
-|--rpclisten=[::]:8336|all IPv6 interfaces on non-standard port 8336|
-|--rpclisten=127.0.0.1:8337 --listen=[::1]:8334|IPv4 localhost on port 8337 and IPv6 localhost on port 8334|
-|--rpclisten=:8334 --listen=:8337|all interfaces on ports 8334 and 8337|
+|--rpclisten=:23100|all interfaces on port 23100|
+|--rpclisten=0.0.0.0:23100|all IPv4 interfaces on port 23100|
+|--rpclisten=[::]:23100|all IPv6 interfaces on port 23100|
+|--rpclisten=127.0.0.1:23100|only IPv4 localhost on port 23100|
+|--rpclisten=[::1]:23100|only IPv6 localhost on port 23100|
+|--rpclisten=:23102|all interfaces on non-standard port 23102|
+|--rpclisten=0.0.0.0:23102|all IPv4 interfaces on non-standard port 23102|
+|--rpclisten=[::]:23102|all IPv6 interfaces on non-standard port 23102|
+|--rpclisten=127.0.0.1:23103 --listen=[::1]:23100|IPv4 localhost on port 23103 and IPv6 localhost on port 23100|
+|--rpclisten=:23100 --listen=:23103|all interfaces on ports 23100 and 23103|
 
-The following config file would configure the btcd RPC server to listen to all interfaces on the default port, including external interfaces, for both IPv4 and IPv6:
+The following config file would configure the jind RPC server to listen to all interfaces on the default port, including external interfaces, for both IPv4 and IPv6:
 
 ```text
 [Application Options]

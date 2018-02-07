@@ -21,7 +21,7 @@ via an RPC interface.
 ## Installation
 
 ```bash
-$ go get -u github.com/roasbeef/btcd/blockchain/indexers
+$ go get -u github.com/JinCoin/jind/blockchain/indexers
 ```
 
 ## License

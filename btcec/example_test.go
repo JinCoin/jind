@@ -8,8 +8,8 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/roasbeef/btcd/btcec"
-	"github.com/roasbeef/btcd/chaincfg/chainhash"
+	"github.com/JinCoin/jind/btcec"
+	"github.com/JinCoin/jind/chaincfg/chainhash"
 )
 
 // This example demonstrates signing a message with a secp256k1 private key that

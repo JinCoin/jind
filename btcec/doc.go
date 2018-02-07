@@ -3,9 +3,9 @@
 // license that can be found in the LICENSE file.
 
 /*
-Package btcec implements support for the elliptic curves needed for bitcoin.
+Package btcec implements support for the elliptic curves needed for jincoin.
 
-Bitcoin uses elliptic curve cryptography using koblitz curves
+Jincoin uses elliptic curve cryptography using koblitz curves
 (specifically secp256k1) for cryptographic functions.  See
 http://www.secg.org/collateral/sec2_final.pdf for details on the
 standard.

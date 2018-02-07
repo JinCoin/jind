@@ -1,6 +1,6 @@
 ============================================================================
-User visible changes for btcd
-  A full-node bitcoin implementation written in Go
+User visible changes for jind
+  A full-node jincoin implementation written in Go
 ============================================================================
 
 Changes in 0.12.0 (Fri Nov 20 2015)
@@ -77,13 +77,13 @@ Changes in 0.12.0 (Fri Nov 20 2015)
   - Websocket changes:
     - Implement session command which returns a per-session unique id (#500,
       #503)
-  - btcctl utility changes:
+  - jinctl utility changes:
     - Add getmempoolinfo command (#453)
     - Add getblockheader command (#461)
     - Add getwalletinfo command (#471)
   - Notable developer-related package changes:
     - Introduce a new peer package which acts a common base for creating and
-      concurrently managing bitcoin network peers (#445)
+      concurrently managing jincoin network peers (#445)
     - Various cleanup of the new peer package (#528, #531, #524, #534,
       #549)
     - Blocks heights now consistently use int32 everywhere (#481)
@@ -140,7 +140,7 @@ Changes in 0.11.1 (Wed May 27 2015)
     - Update getrawtransaction result to omit the 'confirmations' field
       when it is 0 (#420, #422)
     - Update signrawtransaction result to include errors (#423)
-  - btcctl utility changes:
+  - jinctl utility changes:
     - Add gettxoutproof command (#428)
     - Add verifytxoutproof command (#428)
   - Notable developer-related package changes:
@@ -203,7 +203,7 @@ Changes in 0.11.0 (Wed May 06 2015)
     - Implement new commands stopnotifyspent, stopnotifyreceived,
       stopnotifyblocks, and stopnotifynewtransactions to allow clients to
       cancel notification registrations (#122, #342)
-  - btcctl utility changes:
+  - jinctl utility changes:
     - A single dash can now be used as an argument to cause that argument to
       be read from stdin (#348)
     - Add generate command
@@ -309,7 +309,7 @@ Changes in 0.10.0 (Sun Mar 01 2015)
       for notifications about transactions paying to rescanned addresses
       or spending outputs from the final rescan utxo set when the rescan
       is through the best block in the chain
-  - btcctl utility changes:
+  - jinctl utility changes:
     - Make the list of commands available via the -l option rather than
       dumping the entire list on usage errors
     - Alphabetize and categorize the list of commands by chain and wallet
@@ -335,7 +335,7 @@ Changes in 0.10.0 (Sun Mar 01 2015)
   - showblock utility changes:
     - Remove utility in favor of the RPC getblock method
   - Notable developer-related package changes:
-    - Many of the core packages have been relocated into the btcd repository
+    - Many of the core packages have been relocated into the jind repository
       (https://github.com/roasbeef/btcd/issues/214)
     - A new version of the btcjson package that has been completely
       redesigned from the ground up based based upon how the project has
@@ -451,9 +451,9 @@ Changes in 0.9.0 (Sat Sep 20 2014)
     - Add rescanfinished notification
     - Modify the rescanprogress notification to include block hash as well
       as height (https://github.com/conformal/btcd/issues/151)
-  - btcctl utility changes:
+  - jinctl utility changes:
     - Accept --simnet flag which automatically selects the appropriate port
-      and TLS certificates needed to communicate with btcd and btcwallet on
+      and TLS certificates needed to communicate with jind and jinwallet on
       the simulation test network
     - Fix createrawtransaction command to send amounts denominated in BTC
     - Add estimatefee command
@@ -465,12 +465,12 @@ Changes in 0.9.0 (Sat Sep 20 2014)
     - Add signrawtransaction command
   - addblock utility changes:
     - Accept --simnet flag which automatically selects the appropriate port
-      and TLS certificates needed to communicate with btcd and btcwallet on
+      and TLS certificates needed to communicate with jind and jinwallet on
       the simulation test network
   - Notable developer-related package changes:
-    - Provide a new bloom package in btcutil which allows creating and
+    - Provide a new bloom package in jinutil which allows creating and
       working with BIP0037 bloom filters
-    - Provide a new hdkeychain package in btcutil which allows working with
+    - Provide a new hdkeychain package in jinutil which allows working with
       BIP0032 hierarchical deterministic key chains
     - Introduce a new btcnet package which houses network parameters
     - Provide new simnet network (--simnet) which is useful for private
@@ -500,7 +500,7 @@ Changes in 0.9.0 (Sat Sep 20 2014)
     - General code cleanup and minor optimizations
 
 Changes in 0.8.0-beta (Sun May 25 2014)
-  - Btcd is now Beta (https://github.com/conformal/btcd/issues/130)
+  - Jind is now Beta (https://github.com/conformal/btcd/issues/130)
   - Add a new checkpoint at block height 300255
   - Protocol and network related changes:
     - Lower the minimum transaction relay fee to 1000 satoshi to match
@@ -567,7 +567,7 @@ Changes in 0.8.0-beta (Sun May 25 2014)
       (https://github.com/conformal/btcd/issues/123)
     - Significantly optimize the rescan command to yield up to a 60x speed
       increase
-  - btcctl utility changes:
+  - jinctl utility changes:
     - Add createencryptedwallet command
     - Add getblockchaininfo command
     - Add importwallet commmand
@@ -575,13 +575,13 @@ Changes in 0.8.0-beta (Sun May 25 2014)
     - Add setgenerate command
     - Accept --testnet and --wallet flags which automatically select
       the appropriate port and TLS certificates needed to communicate
-      with btcd and btcwallet (https://github.com/conformal/btcd/issues/112)
+      with jind and jinwallet (https://github.com/conformal/btcd/issues/112)
     - Allow path expansion from config file entries
       (https://github.com/conformal/btcd/issues/113)
     - Minor refactor simplify handling of options
   - addblock utility changes:
     - Improve logging by making it consistent with the logging provided by
-      btcd (https://github.com/conformal/btcd/issues/90)
+      jind (https://github.com/conformal/btcd/issues/90)
   - Improve several package APIs for developers:
     - Add new amount type for consistently handling monetary values
     - Add new coin selector API
@@ -629,7 +629,7 @@ Changes in 0.7.0 (Thu Feb 20 2014)
       concurrent websocket clients
     - Add a new websocket command notifyallnewtxs to request notifications
       (https://github.com/conformal/btcd/issues/86) (thanks @flammit)
-  - Improve btcctl utility in the following ways:
+  - Improve jinctl utility in the following ways:
     - Add getnetworkhashps command
     - Add gettransaction command (wallet-specific)
     - Add signmessage command (wallet-specific)
@@ -682,7 +682,7 @@ Changes in 0.6.0 (Tue Feb 04 2014)
     - Rollback to the last known good point when a header does not match a
       checkpoint
     - Log information about what is happening with headers
-  - Improve btcctl utility in the following ways:
+  - Improve jinctl utility in the following ways:
     - Add getaddednodeinfo command
     - Add getnettotals command
     - Add getblocktemplate command (wallet-specific)
@@ -756,10 +756,10 @@ Changes in 0.5.0 (Mon Jan 13 2014)
     (https://github.com/conformal/btcd/issues/38)
   - Fix an issue which could lead to a panic on chain switches
     (https://github.com/conformal/btcd/issues/70)
-  - Improve btcctl utility in the following ways:
+  - Improve jinctl utility in the following ways:
     - Show getdifficulty output as floating point to 6 digits of precision
     - Show all JSON object replies formatted as standard JSON
-    - Allow btcctl getblock to accept optional params
+    - Allow jinctl getblock to accept optional params
     - Add getaccount command (wallet-specific)
     - Add getaccountaddress command (wallet-specific)
     - Add sendrawtransaction command
@@ -825,10 +825,10 @@ Changes in 0.4.0 (Thu Dec 12 2013)
   - Update address manager to recognize and properly work with Tor
     addresses (https://github.com/conformal/btcd/issues/36) and
     (https://github.com/conformal/btcd/issues/37)
-  - Improve btcctl utility in the following ways:
+  - Improve jinctl utility in the following ways:
     - Add the ability to specify a configuration file
     - Add a default entry for the RPC cert to point to the location
-      it will likely be in the btcd home directory
+      it will likely be in the jind home directory
     - Implement --version flag
     - Provide a --notls option to support non-TLS configurations
   - Fix a couple of minor races found by the Go race detector
@@ -854,14 +854,14 @@ Changes in 0.4.0 (Thu Dec 12 2013)
   - Update Ctrl+C interrupt handler to properly sync address manager and
     remove the UPnP port mapping (if needed)
   - Continue cleanup and work on implementing RPC API calls
-    - Add importprivkey (import private key) command to btcctl
+    - Add importprivkey (import private key) command to jinctl
     - Update getrawtransaction to provide addresses properly, support
       new verbose param, and match the reference implementation with the
       exception of MULTISIG (thanks @flammit)
     - Update getblock with new verbose flag (thanks @flammit)
-    - Add listtransactions command to btcctl
-    - Add getbalance command to btcctl
-  - Add basic support for btcd to run as a native Windows service
+    - Add listtransactions command to jinctl
+    - Add getbalance command to jinctl
+  - Add basic support for jind to run as a native Windows service
     (https://github.com/conformal/btcd/issues/42)
   - Package addblock utility with Windows MSIs
   - Add support for TravisCI (continuous build integration)
@@ -915,13 +915,13 @@ Changes in 0.3.2 (Tue Oct 22 2013)
   - Remove deprecated sqlite as an available database backend
   - Close sqlite compile issue as sqlite has now been removed
     (https://github.com/conformal/btcd/issues/11)
-  - Change default RPC ports to 8334 (mainnet) and 18334 (testnet)
+  - Change default RPC ports to 23100 (mainnet) and 33100 (testnet)
   - Continue cleanup and work on implementing RPC API calls
   - Add support for the following RPC calls: getrawmempool,
     getbestblockhash, decoderawtransaction, getdifficulty,
     getconnectioncount, getpeerinfo, and addnode
-  - Improve the btcctl utility that is used to issue JSON-RPC commands
-  - Fix an issue preventing btcd from cleanly shutting down with the RPC
+  - Improve the jinctl utility that is used to issue JSON-RPC commands
+  - Fix an issue preventing jind from cleanly shutting down with the RPC
     stop command
   - Add a number of database interface tests to ensure backends implement
     the expected interface
@@ -945,7 +945,7 @@ Changes in 0.3.1-alpha (Tue Oct 15 2013)
     of no longer needed orphans
   - Add functionality to increase ulimits on non-Windows platforms
   - Add support for mempool command which allows remote peers to query the
-    transaction memory pool via the bitcoin protocol
+    transaction memory pool via the jincoin protocol
   - Clean up logging a bit
   - Add a flag to disable checkpoints for developers
   - Add a lot of useful debug logging such as message summaries

@@ -9,15 +9,15 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/roasbeef/btcd/blockchain"
-	"github.com/roasbeef/btcd/blockchain/indexers"
-	"github.com/roasbeef/btcd/database"
-	"github.com/roasbeef/btcd/limits"
+	"github.com/JinCoin/jind/blockchain"
+	"github.com/JinCoin/jind/blockchain/indexers"
+	"github.com/JinCoin/jind/database"
+	"github.com/JinCoin/jind/limits"
 	"github.com/btcsuite/btclog"
 )
 
 const (
-	// blockDbNamePrefix is the prefix for the btcd block database.
+	// blockDbNamePrefix is the prefix for the jind block database.
 	blockDbNamePrefix = "blocks"
 )
 

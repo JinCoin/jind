@@ -1,6 +1,6 @@
 // Package chaincfg defines chain configuration parameters.
 //
-// In addition to the main Bitcoin network, which is intended for the transfer
+// In addition to the main jincoin network, which is intended for the transfer
 // of monetary value, there also exists two currently active standard networks:
 // regression test and testnet (version 3).  These networks are incompatible
 // with each other (each sharing a different genesis block) and software should
@@ -25,11 +25,11 @@
 //          "fmt"
 //          "log"
 //
-//          "github.com/roasbeef/btcutil"
-//          "github.com/roasbeef/btcd/chaincfg"
+//          "github.com/JinCoin/jinutil"
+//          "github.com/JinCoin/jind/chaincfg"
 //  )
 //
-//  var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")
+//  var testnet = flag.Bool("testnet", false, "operate on the testnet jincoin network")
 //
 //  // By default (without -testnet), use mainnet.
 //  var chainParams = &chaincfg.MainNetParams
@@ -46,14 +46,14 @@
 //
 //          // Create and print new payment address, specific to the active network.
 //          pubKeyHash := make([]byte, 20)
-//          addr, err := btcutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
+//          addr, err := jinutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
 //          if err != nil {
 //                  log.Fatal(err)
 //          }
 //          fmt.Println(addr)
 //  }
 //
-// If an application does not use one of the three standard Bitcoin networks,
+// If an application does not use one of the three standard jincoin networks,
 // a new Params struct may be created which defines the parameters for the
 // non-standard network.  As a general rule of thumb, all network parameters
 // should be unique to the network, but parameter collisions can still occur

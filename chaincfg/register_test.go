@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/roasbeef/btcd/chaincfg"
+	. "github.com/JinCoin/jind/chaincfg"
 )
 
 // Define some of the required parameters for a user-registered

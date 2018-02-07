@@ -1,7 +1,7 @@
-package: github.com/roasbeef/btcd
+package: github.com/JinCoin/jind
 import:
 - package: github.com/btcsuite/btclog
-- package: github.com/roasbeef/btcutil
+- package: github.com/JinCoin/jinutil
   version: c3ff179366044979fb9856c2feb79bd4c2184c7a
   subpackages:
   - bloom

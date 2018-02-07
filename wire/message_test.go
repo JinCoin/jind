@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/roasbeef/btcd/chaincfg/chainhash"
+	"github.com/JinCoin/jind/chaincfg/chainhash"
 )
 
 // makeHeader is a convenience function to make a message header in the form of
@@ -22,8 +22,8 @@ import (
 func makeHeader(btcnet BitcoinNet, command string,
 	payloadLen uint32, checksum uint32) []byte {
 
-	// The length of a bitcoin message header is 24 bytes.
-	// 4 byte magic number of the bitcoin network + 12 byte command + 4 byte
+	// The length of a jincoin message header is 24 bytes.
+	// 4 byte magic number of the jincoin network + 12 byte command + 4 byte
 	// payload length + 4 byte checksum.
 	buf := make([]byte, 24)
 	binary.LittleEndian.PutUint32(buf, uint32(btcnet))
@@ -40,10 +40,10 @@ func TestMessage(t *testing.T) {
 	// Create the various types of messages to test.
 
 	// MsgVersion.
-	addrYou := &net.TCPAddr{IP: net.ParseIP("192.168.0.1"), Port: 8333}
+	addrYou := &net.TCPAddr{IP: net.ParseIP("192.168.0.1"), Port: 23099}
 	you := NewNetAddress(addrYou, SFNodeNetwork)
 	you.Timestamp = time.Time{} // Version message has zero value timestamp.
-	addrMe := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 8333}
+	addrMe := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 23099}
 	me := NewNetAddress(addrMe, SFNodeNetwork)
 	me.Timestamp = time.Time{} // Version message has zero value timestamp.
 	msgVersion := NewMsgVersion(me, you, 123123, 0)
@@ -242,7 +242,7 @@ func TestReadMessageWireErrors(t *testing.T) {
 	tests := []struct {
 		buf     []byte     // Wire encoding
 		pver    uint32     // Protocol version for wire encoding
-		btcnet  BitcoinNet // Bitcoin network for wire encoding
+		btcnet  BitcoinNet // jincoin network for wire encoding
 		max     int        // Max size of fixed buffer to induce errors
 		readErr error      // Expected read error
 		bytes   int        // Expected num bytes read
@@ -409,7 +409,7 @@ func TestWriteMessageWireErrors(t *testing.T) {
 	tests := []struct {
 		msg    Message    // Message to encode
 		pver   uint32     // Protocol version for wire encoding
-		btcnet BitcoinNet // Bitcoin network for wire encoding
+		btcnet BitcoinNet // jincoin network for wire encoding
 		max    int        // Max size of fixed buffer to induce errors
 		err    error      // Expected error
 		bytes  int        // Expected num bytes written

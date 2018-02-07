@@ -4,7 +4,7 @@ ffldb
 <<<<<<< HEAD
 [![Build Status](https://travis-ci.org/roasbeef/btcd.png?branch=master)](https://travis-ci.org/roasbeef/btcd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://godoc.org/github.com/roasbeef/btcd/database/ffldb?status.png)](http://godoc.org/github.com/roasbeef/btcd/database/ffldb)
+[![GoDoc](https://godoc.org/github.com/JinCoin/jind/database/ffldb?status.png)](http://godoc.org/github.com/JinCoin/jind/database/ffldb)
 =======
 [![Build Status](https://travis-ci.org/roasbeef/btcd.png?branch=master)]
 (https://travis-ci.org/roasbeef/btcd)
@@ -13,7 +13,7 @@ ffldb
 Package ffldb implements a driver for the database package that uses leveldb for
 the backing metadata and flat files for block storage.
 
-This driver is the recommended driver for use with btcd.  It makes use leveldb
+This driver is the recommended driver for use with jind.  It makes use leveldb
 for the metadata, flat files for block storage, and checksums in key areas to
 ensure data integrity.
 
@@ -43,16 +43,16 @@ if err != nil {
 =======
 ## Documentation
 
-[![GoDoc](https://godoc.org/github.com/roasbeef/btcd/database/ffldb?status.png)]
-(http://godoc.org/github.com/roasbeef/btcd/database/ffldb)
+[![GoDoc](https://godoc.org/github.com/JinCoin/jind/database/ffldb?status.png)]
+(http://godoc.org/github.com/JinCoin/jind/database/ffldb)
 
 Full `go doc` style documentation for the project can be viewed online without
 installing this package by using the GoDoc site here:
-http://godoc.org/github.com/roasbeef/btcd/database/ffldb
+http://godoc.org/github.com/JinCoin/jind/database/ffldb
 
 You can also view the documentation locally once the package is installed with
 the `godoc` tool by running `godoc -http=":6060"` and pointing your browser to
-http://localhost:6060/pkg/github.com/roasbeef/btcd/database/ffldb
+http://localhost:6060/pkg/github.com/JinCoin/jind/database/ffldb
 
 >>>>>>> c7d17841... multi: update imports to roasbeef's
 ## License

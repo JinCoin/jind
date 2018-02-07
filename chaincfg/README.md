@@ -5,15 +5,15 @@ chaincfg
 (https://travis-ci.org/roasbeef/btcd) [![ISC License]
 (http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)]
-(http://godoc.org/github.com/roasbeef/btcd/chaincfg)
+(http://godoc.org/github.com/JinCoin/jind/chaincfg)
 
 Package chaincfg defines chain configuration parameters for the three standard
-Bitcoin networks and provides the ability for callers to define their own custom
-Bitcoin networks.
+jincoin networks and provides the ability for callers to define their own custom
+jincoin networks.
 
-Although this package was primarily written for btcd, it has intentionally been
+Although this package was primarily written for jind, it has intentionally been
 designed so it can be used as a standalone package for any projects needing to
-use parameters for the standard Bitcoin networks or for projects needing to
+use parameters for the standard jincoin networks or for projects needing to
 define their own network.
 
 ## Sample Use
@@ -26,11 +26,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/roasbeef/btcutil"
-	"github.com/roasbeef/btcd/chaincfg"
+	"github.com/JinCoin/jinutil"
+	"github.com/JinCoin/jind/chaincfg"
 )
 
-var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")
+var testnet = flag.Bool("testnet", false, "operate on the testnet jincoin network")
 
 // By default (without -testnet), use mainnet.
 var chainParams = &chaincfg.MainNetParams
@@ -47,7 +47,7 @@ func main() {
 
 	// Create and print new payment address, specific to the active network.
 	pubKeyHash := make([]byte, 20)
-	addr, err := btcutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
+	addr, err := jinutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -58,7 +58,7 @@ func main() {
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/roasbeef/btcd/chaincfg
+$ go get -u github.com/JinCoin/jind/chaincfg
 ```
 
 ## GPG Verification Key

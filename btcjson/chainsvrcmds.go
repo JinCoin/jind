@@ -11,7 +11,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/roasbeef/btcd/wire"
+	"github.com/JinCoin/jind/wire"
 )
 
 // AddNodeSubCmd defines the type used in the addnode JSON-RPC command for the
@@ -460,7 +460,7 @@ func NewGetRawMempoolCmd(verbose *bool) *GetRawMempoolCmd {
 
 // GetRawTransactionCmd defines the getrawtransaction JSON-RPC command.
 //
-// NOTE: This field is an int versus a bool to remain compatible with Bitcoin
+// NOTE: This field is an int versus a bool to remain compatible with Jincoin
 // Core even though it really should be a bool.
 type GetRawTransactionCmd struct {
 	Txid    string

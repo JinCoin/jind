@@ -7,8 +7,8 @@ package txscript
 import (
 	"testing"
 
-	"github.com/roasbeef/btcd/chaincfg/chainhash"
-	"github.com/roasbeef/btcd/wire"
+	"github.com/JinCoin/jind/chaincfg/chainhash"
+	"github.com/JinCoin/jind/wire"
 )
 
 // TestBadPC sets the pc to a deliberately bad result then confirms that Step()

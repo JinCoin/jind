@@ -12,7 +12,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/roasbeef/btcd/chaincfg/chainhash"
+	"github.com/JinCoin/jind/chaincfg/chainhash"
 )
 
 const (

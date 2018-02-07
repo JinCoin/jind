@@ -7,17 +7,17 @@ package main
 import (
 	"log"
 
-	"github.com/roasbeef/btcd/rpcclient"
+	"github.com/JinCoin/jind/rpcclient"
 )
 
 func main() {
-	// Connect to local bitcoin core RPC server using HTTP POST mode.
+	// Connect to local jincoin core RPC server using HTTP POST mode.
 	connCfg := &rpcclient.ConnConfig{
-		Host:         "localhost:8332",
+		Host:         "localhost:23098",
 		User:         "yourrpcuser",
 		Pass:         "yourrpcpass",
-		HTTPPostMode: true, // Bitcoin core only supports HTTP POST mode
-		DisableTLS:   true, // Bitcoin core does not provide TLS by default
+		HTTPPostMode: true, // Jincoin core only supports HTTP POST mode
+		DisableTLS:   true, // Jincoin core does not provide TLS by default
 	}
 	// Notice the notification parameter is nil since notifications are
 	// not supported in HTTP POST mode.

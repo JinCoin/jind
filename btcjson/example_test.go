@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/roasbeef/btcd/btcjson"
+	"github.com/JinCoin/jind/btcjson"
 )
 
 // This example demonstrates how to create and marshal a command into a JSON-RPC

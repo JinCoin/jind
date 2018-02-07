@@ -7,7 +7,7 @@ package btcjson_test
 import (
 	"testing"
 
-	"github.com/roasbeef/btcd/btcjson"
+	"github.com/JinCoin/jind/btcjson"
 )
 
 // TestErrorCodeStringer tests the stringized output for the ErrorCode type.

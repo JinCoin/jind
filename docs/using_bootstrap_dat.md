@@ -3,13 +3,13 @@
 2. [What are the pros and cons of using bootstrap.dat?](#ProsCons)
 3. [Where do I get bootstrap.dat?](#Obtaining)
 4. [How do I know I can trust the bootstrap.dat I downloaded?](#Trust)
-5. [How do I use bootstrap.dat with btcd?](#Importing)
+5. [How do I use bootstrap.dat with jind?](#Importing)
 
 <a name="What" />
 
 ### 1. What is bootstrap.dat?
 
-It is a flat, binary file containing bitcoin blockchain data starting from the
+It is a flat, binary file containing jincoin blockchain data starting from the
 genesis block and continuing through a relatively recent block height depending
 on the last time it was updated.
 
@@ -17,7 +17,7 @@ See [this](https://bitcointalk.org/index.php?topic=145386.0) thread on
 bitcointalk for more details.
 
 **NOTE:** Using bootstrap.dat is entirely optional.  Btcd will download the
-block chain from other peers through the Bitcoin protocol with no extra
+block chain from other peers through the Jincoin protocol with no extra
 configuration needed.
 
 <a name="ProsCons" />
@@ -51,27 +51,27 @@ for the torrent download details.
 
 You don't need to trust the file as the `addblock` utility verifies every block
 using the same rules that are used when downloading the block chain normally
-through the Bitcoin protocol.  Additionally, the chain rules contain hard-coded
+through the Jincoin protocol.  Additionally, the chain rules contain hard-coded
 checkpoints for the known-good block chain at periodic intervals.  This ensures
 that not only is it a valid chain, but it is the same chain that everyone else
 is using.
 
 <a name="Importing" />
 
-### 5. How do I use bootstrap.dat with btcd?
+### 5. How do I use bootstrap.dat with jind?
 
-btcd comes with a separate utility named `addblock` which can be used to import
+jind comes with a separate utility named `addblock` which can be used to import
 `bootstrap.dat`.  This approach is used since the import is a one-time operation
 and we prefer to keep the daemon itself as lightweight as possible.
 
-1. Stop btcd if it is already running.  This is required since addblock needs to
-   access the database used by btcd and it will be locked if btcd is using it.
+1. Stop jind if it is already running.  This is required since addblock needs to
+   access the database used by jind and it will be locked if jind is using it.
 2. Note the path to the downloaded bootstrap.dat file.
 3. Run the addblock utility with the `-i` argument pointing to the location of
    boostrap.dat:<br /><br />
 **Windows:**
 ```bat
-C:\> "%PROGRAMFILES%\Btcd Suite\Btcd\addblock" -i C:\Path\To\bootstrap.dat
+C:\> "%PROGRAMFILES%\Jind Suite\Jind\addblock" -i C:\Path\To\bootstrap.dat
 ```
 **Linux/Unix/BSD/POSIX:**
 ```bash

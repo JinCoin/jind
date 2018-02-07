@@ -3,25 +3,25 @@
 // license that can be found in the LICENSE file.
 
 /*
-Package rpcclient implements a websocket-enabled Bitcoin JSON-RPC client.
+Package rpcclient implements a websocket-enabled Jincoin JSON-RPC client.
 
 Overview
 
 This client provides a robust and easy to use client for interfacing with a
-Bitcoin RPC server that uses a btcd/bitcoin core compatible Bitcoin JSON-RPC
-API.  This client has been tested with btcd (https://github.com/roasbeef/btcd),
-btcwallet (https://github.com/btcsuite/btcwallet), and
-bitcoin core (https://github.com/bitcoin).
+Jincoin RPC server that uses a jind/jincoin core compatible Jincoin JSON-RPC
+API.  This client has been tested with jind (https://github.com/JinCoin/jind),
+jinwallet (https://github.com/JinCoin/jinwallet), and
+jincoin core (https://github.com/jincoin).
 
-In addition to the compatible standard HTTP POST JSON-RPC API, btcd and
-btcwallet provide a websocket interface that is more efficient than the standard
+In addition to the compatible standard HTTP POST JSON-RPC API, jind and
+jinwallet provide a websocket interface that is more efficient than the standard
 HTTP POST method of accessing RPC.  The section below discusses the differences
 between HTTP POST and websockets.
 
 By default, this client assumes the RPC server supports websockets and has
 TLS enabled.  In practice, this currently means it assumes you are talking to
-btcd or btcwallet by default.  However, configuration options are provided to
-fall back to HTTP POST and disable TLS to support talking with inferior bitcoin
+jind or jinwallet by default.  However, configuration options are provided to
+fall back to HTTP POST and disable TLS to support talking with inferior jincoin
 core style RPC servers.
 
 Websockets vs HTTP POST
@@ -31,8 +31,8 @@ issues the call, waits for the response, and closes the connection.  This adds
 quite a bit of overhead to every call and lacks flexibility for features such as
 notifications.
 
-In contrast, the websocket-based JSON-RPC interface provided by btcd and
-btcwallet only uses a single connection that remains open and allows
+In contrast, the websocket-based JSON-RPC interface provided by jind and
+jinwallet only uses a single connection that remains open and allows
 asynchronous bi-directional communication.
 
 The websocket interface supports all of the same commands as HTTP POST, but they
@@ -63,7 +63,7 @@ The first important part of notifications is to realize that they will only
 work when connected via websockets.  This should intuitively make sense
 because HTTP POST mode does not keep a connection open!
 
-All notifications provided by btcd require registration to opt-in.  For example,
+All notifications provided by jind require registration to opt-in.  For example,
 if you want to be notified when funds are received by a set of addresses, you
 register the addresses via the NotifyReceived (or NotifyReceivedAsync) function.
 
@@ -103,17 +103,17 @@ flag to true in the connection config when creating the client.
 Minor RPC Server Differences and Chain/Wallet Separation
 
 Some of the commands are extensions specific to a particular RPC server.  For
-example, the DebugLevel call is an extension only provided by btcd (and
-btcwallet passthrough).  Therefore if you call one of these commands against
+example, the DebugLevel call is an extension only provided by jind (and
+jinwallet passthrough).  Therefore if you call one of these commands against
 an RPC server that doesn't provide them, you will get an unimplemented error
 from the server.  An effort has been made to call out which commmands are
 extensions in their documentation.
 
-Also, it is important to realize that btcd intentionally separates the wallet
-functionality into a separate process named btcwallet.  This means if you are
-connected to the btcd RPC server directly, only the RPCs which are related to
+Also, it is important to realize that jind intentionally separates the wallet
+functionality into a separate process named jinwallet.  This means if you are
+connected to the jind RPC server directly, only the RPCs which are related to
 chain services will be available.  Depending on your application, you might only
-need chain-related RPCs.  In contrast, btcwallet provides pass through treatment
+need chain-related RPCs.  In contrast, jinwallet provides pass through treatment
 for chain-related RPCs, so it supports them in addition to wallet-related RPCs.
 
 Errors
@@ -164,14 +164,14 @@ Example Usage
 The following full-blown client examples are in the examples directory:
 
  - bitcoincorehttp
-   Connects to a bitcoin core RPC server using HTTP POST mode with TLS disabled
+   Connects to a jincoin core RPC server using HTTP POST mode with TLS disabled
    and gets the current block count
  - btcdwebsockets
-   Connects to a btcd RPC server using TLS-secured websockets, registers for
+   Connects to a jind RPC server using TLS-secured websockets, registers for
    block connected and block disconnected notifications, and gets the current
    block count
  - btcwalletwebsockets
-   Connects to a btcwallet RPC server using TLS-secured websockets, registers
+   Connects to a jinwallet RPC server using TLS-secured websockets, registers
    for notifications about changes to account balances, and gets a list of
    unspent transaction outputs (utxos) the wallet can sign
 */

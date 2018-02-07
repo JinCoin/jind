@@ -7,8 +7,8 @@ package main
 import (
 	"time"
 
-	"github.com/roasbeef/btcd/chaincfg/chainhash"
-	"github.com/roasbeef/btcd/database"
+	"github.com/JinCoin/jind/chaincfg/chainhash"
+	"github.com/JinCoin/jind/database"
 )
 
 // headersCmd defines the configuration options for the loadheaders command.
